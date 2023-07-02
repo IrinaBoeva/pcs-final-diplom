@@ -13,7 +13,7 @@ public class BooleanSearchEngine implements SearchEngine {
         for (File pdf : pdfsDir.listFiles()) {
             var doc = new PdfDocument(new PdfReader(pdf));
             int pageCount = doc.getNumberOfPages();
-            for (int i = 1; i <= pageCount; i++) {
+            for (int i = 1; i < pageCount; i++) {
                 var page = doc.getPage(i);
                 var text = PdfTextExtractor.getTextFromPage(page);
                 var words = text.split("\\P{IsAlphabetic}+");
