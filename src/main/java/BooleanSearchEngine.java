@@ -25,10 +25,12 @@ public class BooleanSearchEngine implements SearchEngine {
                     word = word.toLowerCase();
                     freqs.put(word, freqs.getOrDefault(word, 0) + 1);
                 }
+
                 for (String word : freqs.keySet()) {
                     PageEntry pageEntry = new PageEntry(pdf.getName(), i, freqs.get(word));
                     if (database.containsKey(word)) {
                         database.get(word).add(pageEntry);
+                        Collections.sort(database.get(word));
                     } else {
                         database.put(word, new ArrayList<>());
                         database.get(word).add(pageEntry);
@@ -41,7 +43,7 @@ public class BooleanSearchEngine implements SearchEngine {
     @Override
     public List<PageEntry> search(String word) {
         List<PageEntry> result = database.get(word);
-        Collections.sort(result);
+        //Collections.sort(result);
         return result;
     }
 }
