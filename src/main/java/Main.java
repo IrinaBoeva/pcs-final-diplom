@@ -13,9 +13,10 @@ public class Main {
                         BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                         PrintWriter out = new PrintWriter(socket.getOutputStream())
                 ) {
-                    String request = in.readLine();
-                    String answer = engine.search(request).toString();
-                    out.println(answer);
+                    String request = in.readLine().toLowerCase();
+                    //String answer = engine.search(request).toString();
+                    //out.println(answer);
+                    System.out.println(request);
                 }
             }
         } catch (IOException e) {
