@@ -44,12 +44,8 @@ public class BooleanSearchEngine implements SearchEngine {
     public List<PageEntry> search(String word) {
         List<PageEntry> result = database.get(word);
         //Collections.sort(result);
-        try {
-            if (result.isEmpty()) {
-                return new ArrayList<>();
-            }
-        } catch (NullPointerException e) {
-            return new ArrayList<>();
+        if (database.get(word) == null) {
+            result = new ArrayList<>();
         }
         return result;
     }

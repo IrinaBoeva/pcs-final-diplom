@@ -14,8 +14,8 @@ public class Main {
                         PrintWriter out = new PrintWriter(socket.getOutputStream())
                 ) {
                     String request = in.readLine().toLowerCase();
-                    //String answer = engine.search(request).toString();
-                    //out.println(answer);
+                    String answer = engine.search(request).toString();
+                    out.println(answer);
                     System.out.println(request);
                 }
             }
